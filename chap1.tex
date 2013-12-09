@@ -1,0 +1,60 @@
+\chapter{General Overview} 
+\label{chap:introduction}
+\epigraph{\epifont\SingleSpacing
+A quote can be placed here if you like \ldots{} .\\[1em]
+}{Author}
+
+\begin{chapteroverview}  
+An overview of the chapter in a few lines \ldots{} .
+\end{chapteroverview}
+
+\section{First Section} 
+\label{sec:mems} 
+The text of this section goes here
+
+%An example figure: label, dimension
+% Follow this style for your ragged side cap figures
+\begin{raggedsidecap}{fig:dimension1}{0.6\maxsidecapfloatwidth}[% 
+The evolution of MEMS technology over time from 1960 till 2000.]{%
+The evolution of MEMS technology over time from 1960 till
+2000. The major enabling technologies are shown in red. The picture is
+adopted from a presentaion by \ldots}
+  \includegraphics[width=\textwidth]{Chap1/Picture}
+\end{raggedsidecap}
+
+\begin{raggedsidecap}{fig:dimension3}{\maxsidecapfloatwidth}[% 
+The evolution of MEMS technology over time from 1960 till 2000.]{%
+\subref{fig:dimension3a} The evolution of MEMS technology over time from 1960 till
+2000. \subref{fig:dimension3b} The major enabling technologies are shown in red. The picture is
+adopted from a presentaion by \ldots}
+\subfigure[][First]{%
+\shadowimage[width=0.47\textwidth]{Chap1/Picture}
+\label{fig:dimension3a}}\hfill%
+\subfigure[][Second]{%
+\shadowimage[width=0.47\textwidth]{Chap1/Picture}
+\label{fig:dimension3b}}
+\end{raggedsidecap}
+
+\clearpage
+
+Here another figure is placed. If the caption is not placed correctly
+compile the document again \cite{Jahanshahi13:JMEMS}. \vref{fig:dimension1} is a sample image.
+\begin{raggedsidecap}{fig:dimension2}{\maxsidecapfloatwidth}[% 
+The evolution of MEMS technology over time from 1960 till 2000.]{%
+The evolution of MEMS technology over time from 1960 till
+2000. The major enabling technologies are shown in red. The picture is
+adopted from a presentaion by \ldots}
+  \shadowimage[width=\textwidth]{Chap1/Picture}
+\end{raggedsidecap}
+
+\clearpage
+
+Here the references of this chapter will be printed \cite{Jahanshahi13:JJAP}.
+\printreferences
+
+\par\vspace*{\fill}
+\epigraph{\epifont\SingleSpacing
+Stupidity includes hurrying before the right time and waiting until the 
+opportunity has passed.\\[1em]
+Enjoyments pass while consequences remain.
+}{Ali ibn Abitalib}\newpage

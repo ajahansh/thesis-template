@@ -1,0 +1,730 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% LUALATEX-MEMOIR PREAMBLE FILE  %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% ALL SECTIONS ARE MARKED        %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%                                %%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TeXworks directives
+% !TeX root = main.tex
+% !TeX program = LuaLaTeX
+% !TeX encoding = utf-8
+%%%%%%%%%%%%%%%%%%%%%%%% CALLING NEEDED PACKAGES   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dutch,english]{babel}
+
+\usepackage[svgnames]{xcolor}
+\definecolor{White}{rgb}{1,1,.99}%very strange. otherwise white is not ok
+
+
+\usepackage{graphicx,luatextra}
+\makeatletter
+\let\c@lotdepth\relax
+\let\c@lofdepth\relax
+\makeatother
+\DisemulatePackage{subfigure}
+%\usepackage{flafter}% uncomment to place figures after the referencing
+\usepackage[normalsize,tight,center,hang]{subfigure}
+\usepackage{multirow,rotating,colortbl,tabu,afterpage,pdflscape}
+
+\usepackage{etoolbox}% adds some programming commands
+
+\usepackage[perpage,hang,marginal,bottom,symbol]{footmisc}
+
+\usepackage[version=3]{mhchem}
+\mhchemoptions{textfontcommand=\normalfont}
+\mhchemoptions{mathfontcommand=\normalfont}
+
+\usepackage{siunitx}
+
+\usepackage{amsmath}
+\usepackage{minted}
+\usepackage[math-style=ISO,bold-style=ISO]{unicode-math}
+\PassOptionsToPackage{fontspec}{silent}
+
+%\usepackage{xpatch}% NEEDED BY BIBLATEX
+\usepackage[autostyle=true]{csquotes}
+\usepackage[bibstyle=ieee,citestyle=numeric-comp,%
+  backend=biber]{biblatex}
+
+\newcommand*{\refcolor}{DodgerBlue}
+\definecolor{specialblue}{RGB}{0,85,212}
+%\definecolor{specialblue}{RGB}{0,0,0}%comment to produce color links
+%\renewcommand*{\refcolor}{Black}%comment to produce color links
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,%
+bookmarksopen=true,pdfnewwindow=true,pdfpagelayout=OneColumn,%
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,%
+breaklinks=true,unicode=true,linktocpage=true,%ocgcolorlinks,%
+colorlinks=true,linkcolor=\refcolor,citecolor=\refcolor,%
+urlcolor=\refcolor,filecolor=\refcolor,hyperfootnotes=false,%
+plainpages=false,pdftitle={Development of a Stretchable Platform for the 
+Fabrication of Biocompatible Microsystems},pdfsubject={PhD Dissertation},%
+pdfauthor={Amir Jahanshahi},pdfcreator={LuaLaTeX memoir document class},%
+pdfkeywords={Microvalves,Micropumps,Microfluidics,Soft lithography,Piezo Pump,%
+Stretchable}}
+
+
+\usepackage{varioref}%extends \pageref via \vref to automate "on the next page"
+\usepackage[\MYhyperrefoptions]{hyperref}%
+\usepackage{cleveref}%the order of varioref and cleveref is import
+%more info: http://tex.stackexchange.com/questions/83037/difference-between-ref
+%-varioref-and-cleveref-decision-for-a-thesis
+\usepackage{xr}   % for cross references between multiple chapters
+
+%for drop shadow effect
+\usepackage{tikz}
+\usetikzlibrary{shadows,calc}
+
+%for double column text
+\usepackage{adjmulticol}
+
+%better control over lists
+\usepackage{enumitem}
+
+\usepackage[activate={true,nocompatibility},%
+            %kerning=true, %does not work yet with lua
+            tracking=true,
+            %spacing=true, %does not work yet with lua
+	          factor=1100,final]{microtype}
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% tracking=true, kerning=true, spacing=true - activate these techniques
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+
+\usepackage{pdfpages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% SELECT ALL FONTS AND MACRO FONTS %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% OPTIMUM FONT SIZE CALCULATION %%%%%%%%%%%%%%%%%%%%%%%%
+\defaultfontfeatures{Scale=MatchLowercase,Ligatures={TeX}}
+
+\setmainfont{Minion Pro}
+\setsansfont[Numbers={Proportional,OldStyle}]{Latin Modern Sans}
+\setmonofont{Monaco}
+\setmathfont{Cambria Math}
+\setmathfont[range=\mathup]  {Minion Pro}
+\setmathfont[range=\mathbfup]{Minion Pro Bold}
+\setmathfont[range=\mathbfit]{Minion Pro Bold Italic}
+\setmathfont[range=\mathit]  {Minion Pro Italic}
+
+\newfontfamily\tofont{Minion Pro}
+\newfontfamily\thanksfont{Minion Pro}
+\newfontfamily\summaryfont{Minion Pro}
+\newfontfamily\epifont{Warnock Pro Light}
+
+\newfontfamily\captionfont{Minion Pro Med Cond}
+\newfontfamily\captionfonttitle{Myriad Pro}
+
+\newfontfamily\headingfont[Color=specialblue]{Myriad Pro Cond}
+
+\newfontfamily\chapternumfont[Color=specialblue]{Minion Pro}
+\newfontfamily\chaptertitlefont{TexGyreHeros}
+
+\newfontfamily\pagenumfont[Scale=1.4]{UniversLTStd-LightUltraCn.otf}
+
+\newfontfamily\headerfont[Scale=1.1,WordSpace=1.2,Color=Black]{%
+                          UniversLTStd-LightUltraCn.otf}
+\newcommand*{\chapteroverviewheadingfont}{%
+\headingfont\addfontfeatures{Color=specialblue,WordSpace={1.6}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% PAGE LAYOUT DEFITION - MEMOIR  %%%%%%%%%%%%%%%%%%%%%%%
+\setstocksize{297mm}{210mm}
+\settrimmedsize{240mm}{160mm}{*}
+\settrims{28mm}{25mm}% define where to put the page in stock
+%\settrims{0pt}{0pt}
+\settypeblocksize{186.66mm}{106.66mm}{*}
+%\settypeblocksize{*}{\lxvchars}{1.618}
+\setlrmargins{*}{*}{1.618}
+\setulmargins{*}{*}{1.618}
+\setheadfoot{1.5\onelineskip}{3\onelineskip}% <headheight><footskip>
+\setheaderspaces{*}{*}{1.618}
+%<marginparsep><marginparwidth> is set below
+\setmarginnotes{0.04\textwidth}{0.8\spinemargin}{2\onelineskip}
+\checkandfixthelayout
+%\showtrimsoff%uncomment to remove the trim lines
+\openright%open chapter on recto page always
+\newlength{\totalmarginwidth}%=\marginparwidth+\marginparsep
+\setlength{\totalmarginwidth}{\marginparwidth}
+\addtolength{\totalmarginwidth}{\marginparsep}
+\newlength{\totaltextwidth}%=\textwidth+\totalmarginwidth
+\setlength{\totaltextwidth}{\totalmarginwidth}
+\addtolength{\totaltextwidth}{\textwidth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% MAKING HEADERS AND FOOTERS %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\makepagestyle{genomics}
+\setlength{\headwidth}{\totaltextwidth}
+\makerunningwidth{genomics}{\headwidth}
+\makeheadposition{genomics}{flushright}{flushleft}{}{}
+\makepsmarks{genomics}{%
+  %\nouppercaseheads
+  \createmark{chapter}{both}{shownumber}{\@chapapp\thinspace}{:\space}
+  \createmark{section}{right}{shownumber}{}{.\space}
+  \createplainmark{toc}{both}{\contentsname}
+  \createplainmark{lof}{both}{\listfigurename}
+  \createplainmark{lot}{both}{\listtablename}
+  \createplainmark{bib}{both}{\bibname}
+  \createplainmark{index}{both}{\indexname}
+  \createplainmark{glossary}{both}{\glossaryname}
+}
+\makeevenhead{genomics}{%
+  \pagenumfont{\color{specialblue}{\thepage}}\quad\headerfont\bfseries%
+\leftmark}{}{}
+\makeoddhead{genomics}{}{}{%
+\headerfont\bfseries\rightmark\pagenumfont\quad%
+{\color{specialblue}\thepage}}
+\pagestyle{genomics}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% CHAPTER PRINTING STYLE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%This part prints the the big chapter number on each chapter
+\newlength{\chapternumwidth}
+\newlength{\chapternumheight}
+\newcommand{\chapternumtext}{\thechapter}
+\newcommand{\chapternumbox}[1]{%
+\chapternumfont\bfseries%
+\addfontfeature{Color=specialblue,Scale=#1}%
+\settowidth{\chapternumwidth}{\thechapter}%
+\settoheight{\chapternumheight}{\thechapter}%
+\renewcommand{\chapternumtext}{\makebox[1.3\chapternumwidth]{\thechapter}}%
+\settowidth{\chapternumwidth}{\chapternumtext}%
+\settoheight{\chapternumheight}{\chapternumtext}%
+\resizebox{\chapternumwidth}{1.5\chapternumheight}{%
+\chapternumtext}}%
+
+\newcommand{\drawchapnum}{%
+\ifanappendix% If appendix print in the middle otherwise right.
+  \makebox[\textwidth][c]{\chapternumbox{4}}
+\else
+  \makebox[\totaltextwidth][r]{\chapternumbox{7}}
+\fi} %%argument is scale
+
+%This part prints the chapter title
+\newsavebox{\chaptitlebox}
+\newlength{\chaptitlewidth}
+\newlength{\chaptitleheight}
+\newenvironment{chaptitle}{%
+  \begin{lrbox}{\chaptitlebox}
+  \begin{minipage}[b]{\textwidth}\raggedright}{%
+  \end{minipage}\end{lrbox}%
+  \settowidth{\chaptitlewidth}{\usebox{\chaptitlebox}}%
+  \settoheight{\chaptitleheight}{\usebox{\chaptitlebox}}%
+  \resizebox{\chaptitlewidth}{\chaptitleheight}{%
+    \usebox{\chaptitlebox}}}
+
+\newcommand{\printchaptitle}[1]{%
+  \chaptitlefont\begin{chaptitle}\DoubleSpacing#1\end{chaptitle}}
+
+\newif\ifnumberedchap
+\numberedchaptrue
+\makechapterstyle{me-pedersen}{
+\setlength\beforechapskip{0pt}%\baselineskip is already there
+\renewcommand*\chaptitlefont{\chaptertitlefont\addfontfeature{Scale=1.8}}
+%\renewcommand*\chapternamenum{}
+\renewcommand\printchaptername{}%Prints Chapter for example
+\renewcommand\printchapternum{\drawchapnum}%prints chapter number
+\setlength{\midchapskip}{\baselineskip}
+\renewcommand\printchapternonum{\global\numberedchapfalse}
+\renewcommand\afterchapternum{\null\par\vskip\midchapskip}
+\renewcommand\printchaptertitle[1]{%
+  \ifnumberedchap% checks whether chapter or chapter* is ordered.
+  {\color{specialblue}\hrule height 2pt}%
+  \vskip\onelineskip%
+  \fi%
+  \raisebox{0pt}{%
+  \printchaptitle{##1}\par}}
+\renewcommand{\afterchaptertitle}{%
+  \vskip\onelineskip
+  \ifnumberedchap% checks whether chapter or chapter* is ordered.
+  {\color{specialblue}\hrule height 2pt}%
+  \fi%
+  \global\numberedchaptrue%
+  \vskip 0.5\afterchapskip}%
+}
+
+\chapterstyle{me-pedersen}
+\newcommand*{\sectionheadstyle}[1]{\bfseries\headingfont%
+  \addfontfeature{Scale=1.55}\parbox{0.6\textwidth}{\raggedright\OnehalfSpacing#1}}
+\setsecindent{-1em}%This should be equal to parindent
+\setsecheadstyle{\sectionheadstyle}
+\newcommand{\subsectionheadstyle}[1]{\headingfont\bfseries%
+  \addfontfeature{Scale=1.2,Color=black}\parbox{0.6\textwidth}{\raggedright#1}}
+\setsubsecindent{-1em}%This should be equal to parindent
+\setsubsecheadstyle{\subsectionheadstyle}
+\newcommand{\subsubsectionheadstyle}[1]{\headingfont\itshape%
+  \addfontfeature{Scale=1.0,Color=black} #1}
+\setsubsubsecheadstyle{\subsubsectionheadstyle}
+% We add an optional suffix to numbers when printing the section header
+%http://tex.stackexchange.com/questions/117611/change-only-display-of-thesubsection-not-the-actual-value/117623?noredirect=1#117623 
+\setsecnumformat{\csname prefix@#1\endcsname
+  \csname the#1\endcsname
+  \csname suffix@#1\endcsname\quad}
+\renewcommand*{\thesubsubsection}{\textup{\Alph{subsubsection}}}
+% Access to the internals
+\makeatletter
+% redefine the prefix to the subsection number when \ref is used
+\renewcommand{\p@subsubsection}{\thesubsection.}
+% only \suffix@subsection needs a definition
+\newcommand{\prefix@subsubsection}{\begingroup\Large}
+\newcommand{\suffix@subsubsection}{.\endgroup}
+\makeatother
+\setsecnumdepth{subsubsection}
+
+%Chapter Overview environment
+%http://tex.stackexchange.com/questions/114378/flush-bottom-an-environment/114752?noredirect=1#comment253671_114752
+\newenvironment{chapteroverview}{\par\vspace*{\fill}%
+    \noindent\begin{minipage}{\textwidth}%
+    \begin{center}\chapteroverviewheadingfont% 
+    \LARGE OUTLINE OF THIS CHAPTER
+    \end{center}%
+    \vspace*{-6pt}\large\sffamily %
+    %\hrule height 0.5pt width \textwidth \vspace*{10pt}%
+    }%End of the begining commands
+  {\vspace*{10pt}%
+  %\hrule height 0.5pt width \textwidth
+  \end{minipage}\newpage %end this page
+  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TOC, LOT, LOF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%source: http://hstuart.dk/2007/05/26/styling-the-table-of-contents/
+\renewcommand{\cftchapterleader}{\hspace{\marginparsep}}
+\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+
+\renewcommand{\cftsectionleader}{\hspace{\marginparsep}}
+\renewcommand{\cftsectionafterpnum}{\cftparfillskip}
+
+\setcounter{tocdepth}{2}
+\renewcommand{\cftsubsectionleader}{\hspace{\marginparsep}}
+\renewcommand{\cftsubsectionafterpnum}{\cftparfillskip}
+%%%%%%%%%%%%%% FROM HERE ADDED BY ME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setrmarg{2em plus 1fil}
+
+\renewcommand{\cftfigureleader}{\hspace{\marginparsep}}%page after title
+\renewcommand{\cftfigureafterpnum}{\cftparfillskip}%fill line after num
+
+\renewcommand{\cfttableleader}{\hspace{\marginparsep}}
+\renewcommand{\cfttableafterpnum}{\cftparfillskip}
+
+\cftsetindents{subsection}{4.5em}{3.9em}%indent the subsection names
+\addto\captionsenglish{\renewcommand*{\contentsname}{Table of Contents}}
+\addto\captionsenglish{\renewcommand*{\listfigurename}{List of Selected Figures}}
+\addto\captionsenglish{\renewcommand*{\listtablename}{List of Selected Tables}}
+\renewcommand*{\cftchapterfont}{\sffamily\large\bfseries}%self explanatory
+\renewcommand*{\cftsectionfont}{\sffamily}%self explanatory
+\renewcommand*{\cftsubsectionfont}{\sffamily}%self explanatory
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% GLOASSARIES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[xindy,nonumberlist]{glossaries}% To avoid the annoying glossary 
+% text after the section heading:
+%http://tex.stackexchange.com/questions/28659/pagestyleruled-adds-superfluous-text-in-glossary
+%\usepackage{bidi}% SHOULD BE THE LAST PACKAGE TO LOAD - Not working in Lua
+\loadglsentries{main-acro}
+\renewcommand*{\glspostdescription}{} % remove the annoying dot after entry
+\renewcommand*{\glossaryname}{Glossary}% will appear in TOC
+\makeglossaries
+\glsaddall    % add all the glossary regardless of them being used.
+\glossarystyle{long} 
+\renewcommand*{\glstextformat}[1]{\textcolor{black}{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% MISC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\epigraphwidth}{0.6\textwidth}
+\midsloppy% sth between \fussy and \sloppy
+\OnehalfSpacing
+\setlength{\parskip}{0pt}%remove inter-paragrph spacing - looks very bad
+\setlength{\parindent}{1.0em}%indentation at the start of the new paragraphs
+\sisetup{
+range-phrase = --,
+separate-uncertainty=true,
+mode=math,%All units and numbers are set in text mode
+detect-all,%change font appropriately according to context
+}
+\AtBeginEnvironment{minted}{\small\SingleSpacing}% Use small font for codes
+\newcommand{\inputcode}[2]{\inputminted[mathescape,%
+                                        linenos=true,%
+                                        formatcom=\small\SingleSpacing]{#1}{#2}}%
+\renewcommand{\theFancyVerbLine}{\sffamily\scriptsize
+\textcolor[rgb]{0.5,0.5,1.0}{\oldstylenums{\arabic{FancyVerbLine}}}}
+\newcommand{\twoblankpages}{\pagenumbering{gobble}\mbox{}\thispagestyle{empty}%
+                            \clearpage\pagenumbering{gobble}\mbox{}%
+                            \thispagestyle{empty}\clearpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FLOAT OPTIONS                  %%%%%%%%%%%%%%%%%%%%%%%
+\graphicspath{{Pictures/}}
+
+\crefname{table}{table}{tables}
+\Crefname{table}{Table}{Tables}
+\crefname{figure}{Fig.}{fig.}
+\Crefname{figure}{Fig.}{Fig.}
+\crefname{section}{Sec.}{Sec.}
+\Crefname{section}{Sec.}{Sec.}
+\crefname{equation}{Equ.}{Equ.}
+\Crefname{equation}{Equ.}{Equ.}
+
+\setfloatlocations{figure}{t}
+\setfloatlocations{table}{t}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{0}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.6}
+\renewcommand{\textfraction}{0.2}
+\renewcommand{\floatpagefraction}{0.8}
+\renewcommand{\textfloatsep}{10pt} % this is the default
+%%%%%%%%%%% CREATING DROP SHADOW EFFECT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% adopted from here: http://tex.stackexchange.com/questions/81842/creating-a-
+%drop-shadow-with-guassian-blur#comment174996_81842
+% some parameters for customization
+\def\shadowshift{1.5pt,-1.5pt}
+\def\shadowradius{3pt}
+
+\colorlet{innercolor}{black!60}
+\colorlet{outercolor}{gray!05}
+
+% this draws a shadow under a rectangle node
+\newcommand\drawshadow[1]{
+    \begin{pgfonlayer}{shadow}
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.south west)+(\shadowshift)+(\shadowradius/2,\shadowradius/2)$) circle (\shadowradius);
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) circle (\shadowradius);
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) circle (\shadowradius);
+        \shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.north east)+(\shadowshift)+(-\shadowradius/2,-\shadowradius/2)$) circle (\shadowradius);
+        \shade[top color=innercolor,bottom color=outercolor] ($(#1.south west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) rectangle ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$);
+        \shade[left color=innercolor,right color=outercolor] ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$);
+        \shade[bottom color=innercolor,top color=outercolor] ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$);
+        \shade[outercolor,right color=innercolor,left color=outercolor] ($(#1.south west)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$);
+        \filldraw ($(#1.south west)+(\shadowshift)+(\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)-(\shadowradius/2,\shadowradius/2)$);
+    \end{pgfonlayer}
+}
+
+% create a shadow layer, so that we don't need to worry about overdrawing 
+%other things
+\pgfdeclarelayer{shadow} 
+\pgfsetlayers{shadow,main}
+
+\newcommand\shadowimage[2][]{%
+\begin{tikzpicture}
+\node[anchor=south west,inner sep=0] (image) at (0,0) {%
+  \includegraphics[#1]{#2}};
+\drawshadow{image}
+\end{tikzpicture}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% CAPTION SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addto\captionsenglish{\renewcommand{\figurename}{Fig.}}%CHANGE FIGURE TO FIG.
+
+\captiontitlefont{\captionfont\small}
+\captionnamefont{\captionfonttitle\color{specialblue}\bfseries}% MEMOIR MACRO
+\renewcommand{\subcapfont}{%
+  \captionfont\small}%SUBFIGURE MACRO
+\renewcommand{\subcaplabelfont}{\captionfonttitle\color{specialblue}\bfseries}%SUBFIGURE MACRO
+\renewcommand{\subfigbottomskip}{0pt}% SUBFIGURE MACRO
+\renewcommand{\subfigtopskip}{0pt}% SUBFIGURE MACRO
+\captiondelim{.\thinspace}% spaces are not ignored here
+\newcommand*{\postcaptionrule}{\color{specialblue}\rule{\textwidth}{1.5pt}}
+\postcaption{\postcaptionrule}
+%\setlength{\belowcaptionskip}{10pt}
+\makeatletter
+\newcommand\nocaptioninlist{\renewcommand\ext@figure{ll}%
+                                \renewcommand\ext@table{ll}}%Ignore LOF,LOT
+\makeatother
+
+%  Side captions
+% Define raggedyleft
+%http://tex.stackexchange.com/questions/84465/raggedyleft-in-memoir/84470
+\makeatletter
+\newcommand{\raggedyleft}[1][2em]{%
+  \let\\\@centercr
+  \memRTLleftskip\z@ \@plus #1\relax
+  \memRTLrightskip\z@skip
+  \parindent\z@
+  \parfillskip\z@skip
+}
+\makeatother
+\renewcommand*{\sidecapstyle}{%
+\captiontitlefont{\captionfont\small}
+\captionnamefont{\captionfonttitle\color{specialblue}\bfseries}
+\ifscapmargleft%
+  \captionstyle{\raggedyright[0.5em]}
+\else
+\captionstyle{\raggedyleft[0.5em]}
+\fi
+}
+
+\sidecapmargin{outer} % Place in the outer margin
+\setsidecappos{b} % Align the caption at the center of the float
+\addtolength{\sidecapraise}{-1.1ex}%looks better
+% ----------------- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Raggedsidecaption %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ----------------- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\scapindentleft}%=\textwidth-\maxsidecapfloatwidth
+\newlength{\scapindentright}%=0pt
+\newlength{\maxsidecapfloatwidth}%      
+\newlength{\sidecapintomargin}%=\totalmarginwidth
+\newlength{\scapdiffmax}%the difference between maxfloatwidth and the realone
+\setlength{\scapdiffmax}{0pt}%otherthan zero when float < maxsidecapfloatwidth
+
+%\setlength{\sidecapsep}{0.04\textwidth} % Distance between float and caption 
+\setlength{\maxsidecapfloatwidth}{0.8\textwidth}
+\setlength{\scapindentleft}{\textwidth}
+\addtolength{\scapindentleft}{-\maxsidecapfloatwidth}
+\setlength{\scapindentright}{0pt}%to be modified in environment)
+\setlength{\sidecapintomargin}{\totalmarginwidth}
+\setlength{\sidecapwidth}{\totaltextwidth}%=totaltextwidth-sidecapsep-maxside..
+\addtolength{\sidecapwidth}{-\sidecapsep}
+\addtolength{\sidecapwidth}{-\maxsidecapfloatwidth}
+
+% Arguments:
+% 1: (Optional) the label for the caption
+% 2: The width of the float
+% 3: Caption text
+% Between begin and end: Everything there is placed in the float.
+
+\NewDocumentEnvironment{raggedsidecap}{m m o m}{%
+  \begin{figure}
+  \renewcommand{\sidecapfloatwidth}{#2}
+  \setlength{\scapdiffmax}{\maxsidecapfloatwidth}
+  \addtolength{\scapdiffmax}{-\sidecapfloatwidth}
+  
+  \addtolength{\sidecapsep}{0.5\scapdiffmax}
+  
+  \addtolength{\scapindentleft}{0.5\scapdiffmax}
+  
+  \addtolength{\scapindentright}{0.5\scapdiffmax}
+  %\strictpagecheck
+  
+  \IfNoValueTF{#3}%Check if the optional caption is given.
+    {\nocaptioninlist\begin{sidecaption}{#4}[#1]}%no caption in LOF
+    {\begin{sidecaption}[#3]{#4}[#1]}%with caption in LOF
+  }
+  {\end{sidecaption}\end{figure}}
+%Exactly the same environment as above but for tables not figures.
+\NewDocumentEnvironment{raggedsidecaptab}{m m o m}{%
+  \begin{table}
+  \renewcommand{\sidecapfloatwidth}{#2}
+  \setlength{\scapdiffmax}{\maxsidecapfloatwidth}
+  \addtolength{\scapdiffmax}{-\sidecapfloatwidth}
+  
+  \addtolength{\sidecapsep}{0.5\scapdiffmax}
+  
+  \addtolength{\scapindentleft}{0.5\scapdiffmax}
+  
+  \addtolength{\scapindentright}{0.5\scapdiffmax}
+  %\strictpagecheck
+
+  \IfNoValueTF{#3}
+    {\nocaptioninlist\begin{sidecaption}{#4}[#1]}
+    {\begin{sidecaption}[#3]{#4}[#1]}
+  }
+  {\end{sidecaption}\end{table}}
+%  
+% Here be dragons. Overwrite of memoir methods. Do not touch  
+\makeatletter  
+\def\endsidecaption{%
+  \m@mscapend@fbox%
+  \refstepcounter\@captype
+  \m@mscaplabel%
+  \m@mscapcheckside%<---- added this
+  \begin{lrbox}{\m@mscap@capbox}%
+    \begin{minipage}[c]{\sidecapwidth}%
+      \sidecapstyle
+      \@caption\@captype[\m@mscap@fortoc]{\m@mscap@forcap}
+    \end{minipage}%
+  \end{lrbox}%
+  \m@mscapopboxes}%
+\renewcommand*{\m@mscapopboxes}{%
+  % Correctly indented from margin
+  \ifscapmargleft%
+    \hspace{\scapindentleft}%
+  \else%.
+    \hspace{\scapindentright}%
+  \fi%
+  %
+  \m@mcalcscapraise%
+  \usebox{\m@mscap@fbox}%\m@mscapcheckside %<--- removed here
+  \ifscapmargleft%
+  \rlap{\kern-\m@mscaplkern%
+    \raisebox{\m@mscapraise}{\usebox{\m@mscap@capbox}}}%
+  \else%
+  \rlap{\kern\sidecapsep
+    \raisebox{\m@mscapraise}{\usebox{\m@mscap@capbox}}}%
+  \fi%
+  \gdef\m@mscapthisside{}%
+  \@mem@scap@afterhook%
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% Footnote Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footmarkstyle{\textsuperscript{#1}}
+\renewcommand*{\foottextfont}{\normalfont}%This is not working properly
+%\renewcommand*{\footnoterule}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% MISC COMMANDS FOR THE TEXT     %%%%%%%%%%%%%%%%%%%%%%%
+\externaldocument[A:]{chap1}% Cross referencing first chapter
+\externaldocument[B:]{chap2}% Cross referencing second chapter
+\externaldocument[C:]{appendices}% Cross referencing appendix chapter
+\newcommand*{\um}[1]{\SI{#1}{\micro\metre}}
+\newcommand*{\mm}[1]{\SI{#1}{\milli\metre}}
+\newcommand*{\kpa}[1]{\SI{#1}{\kilo\pascal}}
+\newcommand*{\percents}[1]{\SI{#1}{\percent}}
+\newcommand*{\temperature}[1]{\SI{#1}{\degreeCelsius}}
+\newcommand*{\volts}[1]{\SI{#1}{\volt}}
+\strictpagecheck
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FONTSPEC PROBLEM WITH FOOTNOTE %%%%%%%%%%%%%%%%%%%%%%%
+% http://tex.stackexchange.com/questions/72803/scaling-problem-with-fontspec-pa
+%ckage-and-footnote
+\makeatletter
+\renewcommand*{\@makefnmark}{%
+  \hbox{%
+    \@textsuperscript{%
+      % \normalfont % removed
+      \selectfont % added
+      \@thefnmark
+    }%
+  }%  
+}   
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% STYLE THE REFERENCES BASED ON IEEE %%%%%%%%%%%%%%%%%%%
+% http://tex.stackexchange.com/questions/65379/reset-the-counter-of-references-
+%in-each-chapter/72873#72873
+\addto\captionsenglish{\renewcommand{\refname}{References}}
+\ExecuteBibliographyOptions{maxnames=5,minnames=1,minbibnames=5,maxbibnames=5,%
+maxcitenames=1,refsection=chapter,firstinits=true,backref=true,backrefstyle=three,%
+block=space,sortcites=true}%dashed=false}% will be added when support comes
+\renewbibmacro*{bbx:savehash}{} % Remove annoying dash
+\DeclareFieldFormat{labelnumberwidth}{%
+\hspace{2.5pt}\textit{\bfseries\large#1}\adddot\space}
+\defbibenvironment{bibliography}
+  {\list
+    {\printfield[labelnumberwidth]{labelnumber}}
+    {\setlength{\itemindent}{0pt}%
+    \setlength{\labelwidth}{\labelnumberwidth}%
+    \settowidth{\labelsep}{\space}%
+    \setlength{\leftmargin}{\labelnumberwidth}
+    \setlength{\itemsep}{\bibitemsep}%
+    \setlength{\parsep}{\bibparsep}}}%
+    {\endlist}
+   {\item}
+
+\newcommand{\printreferences}{%
+%\clearpage%
+%\begin{adjmulticols}{1}{}{-\totalmarginwidth}%
+\printbibliography[section=\therefsection,heading=myref]%
+%\end{adjmulticols}
+}
+\renewcommand{\bibfont}{\small}
+\renewcommand*{\bibsetup}{%
+  \hyphenpenalty= 50\relax
+  \tolerance=800\relax
+  \interlinepenalty=5000\relax
+  \widowpenalty=10000\relax
+  \clubpenalty=10000\relax
+  \raggedbottom
+  \SingleSpacing %Added by me
+  \frenchspacing 
+  \biburlsetup}
+\DefineBibliographyStrings{english}{% redefine 'cit. on' to 'cited on'
+  backrefpage = {cited on p\adddot},
+  backrefpages= {cited on pp\adddot},
+}
+\defbibheading{myref}[\refname]{%
+  \section{#1}}
+%\setcounter{biburlnumpenalty}{100}
+%\setcounter{biburlucpenalty}{100}
+%\setcounter{biburllcpenalty}{100}
+%\setcounter{abbrvpenalty}{100}
+%\setcounter{highnamepenalty}{1000}
+%%%%% Customization of ieee style %%%%%%%%%%%%%
+\AtEveryBibitem{% remove unwanted fields
+  \clearfield{issn}
+  \clearfield{eprint}
+  \clearfield{isbn}
+  \clearfield{pmid}
+  \clearfield{month}
+}
+
+\DeclareFieldFormat{url}{%
+  \mkbibbrackets{\href{#1}{Online}}
+}
+
+\DeclareFieldFormat{doi}{%
+  \iffieldundef{url}
+    {\mkbibbrackets{\href{http://dx.doi.org/#1}{Online}}}% url is not defined
+    {}%skip doi since url is already available
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% JUST FOR DEBUGGING             %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{blindtext}
+%\usepackage{showlabels}
+%\usepackage{lineno}
+%\pagewiselinenumbers
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

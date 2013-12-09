@@ -1,0 +1,89 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{1}
+  \sortlist{entry}{none}
+    \entry{Jahanshahi13:JMEMS}{article}{}
+      \name{labelname}{3}{}{%
+        {{hash=4038f4828005729d2952e88e52f8eff3}{\mkbibbold{A.\bibnamedelimi Jahanshahi}}{\\bibinitperiod}{}{}{}{}{}{}}%
+        {{hash=507cc848cadd8b5fa081cef9bdd3d4e6}{Salvo}{S\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=0e892f72d1d15f40e97cfaa74a90d2c4}{Vanfleteren}{V\bibinitperiod}{J.}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{hash=4038f4828005729d2952e88e52f8eff3}{\mkbibbold{A.\bibnamedelimi Jahanshahi}}{\\bibinitperiod}{}{}{}{}{}{}}%
+        {{hash=507cc848cadd8b5fa081cef9bdd3d4e6}{Salvo}{S\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=0e892f72d1d15f40e97cfaa74a90d2c4}{Vanfleteren}{V\bibinitperiod}{J.}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{f5fec34aa58f7c03365dc3874bd08f5e}
+      \strng{fullhash}{cb2817acb5b50f894b88d5827926f104}
+      \field{sortinit}{0}
+      \field{labeltitle}{PDMS Selective Bonding for the Fabrication of Biocompatible All Polymer {NC} Microvalves}
+      \field{journaltitle}{Microelectromechanical Systems, Journal of}
+      \field{note}{\mkbibparens{To be published}}
+      \field{title}{PDMS Selective Bonding for the Fabrication of Biocompatible All Polymer {NC} Microvalves}
+      \field{volume}{99}
+      \field{year}{2013}
+      \verb{doi}
+      \verb 10.1109/JMEMS.2013.2262595
+      \endverb
+    \endentry
+    \entry{Jahanshahi13:JJAP}{article}{}
+      \name{labelname}{8}{}{%
+        {{hash=4038f4828005729d2952e88e52f8eff3}{\mkbibbold{A.\bibnamedelimi Jahanshahi}}{\\bibinitperiod}{}{}{}{}{}{}}%
+        {{hash=f01e60daa2b0bfb83868a1799a1eafe8}{Gonzalez}{G\bibinitperiod}{Mario}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=3c4180a2f25a4b5518d5cff314bcf544}{Brand}{B\bibinitperiod}{Jeroen}{J\bibinitperiod}{van\bibnamedelima den}{v\bibinitperiod\bibinitdelim d\bibinitperiod}{}{}}%
+        {{hash=a2cb61e64248763df9568c0c7968f416}{Bossuyt}{B\bibinitperiod}{Frederick}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=46a69c5dab8c7aa95bf48a04ed565285}{Vervust}{V\bibinitperiod}{Thomas}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=518d929b993cb652c555828a8df1d7af}{Verplancke}{V\bibinitperiod}{Rik}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=b3afb0159341538f577d50539b3abf77}{Vanfleteren}{V\bibinitperiod}{Jan}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=42267bdaad279c452fd8b1e6f6927207}{Baets}{B\bibinitperiod}{Johan\bibnamedelima De}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{8}{}{%
+        {{hash=4038f4828005729d2952e88e52f8eff3}{\mkbibbold{A.\bibnamedelimi Jahanshahi}}{\\bibinitperiod}{}{}{}{}{}{}}%
+        {{hash=f01e60daa2b0bfb83868a1799a1eafe8}{Gonzalez}{G\bibinitperiod}{Mario}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=3c4180a2f25a4b5518d5cff314bcf544}{Brand}{B\bibinitperiod}{Jeroen}{J\bibinitperiod}{van\bibnamedelima den}{v\bibinitperiod\bibinitdelim d\bibinitperiod}{}{}}%
+        {{hash=a2cb61e64248763df9568c0c7968f416}{Bossuyt}{B\bibinitperiod}{Frederick}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=46a69c5dab8c7aa95bf48a04ed565285}{Vervust}{V\bibinitperiod}{Thomas}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=518d929b993cb652c555828a8df1d7af}{Verplancke}{V\bibinitperiod}{Rik}{R\bibinitperiod}{}{}{}{}}%
+        {{hash=b3afb0159341538f577d50539b3abf77}{Vanfleteren}{V\bibinitperiod}{Jan}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=42267bdaad279c452fd8b1e6f6927207}{Baets}{B\bibinitperiod}{Johan\bibnamedelima De}{J\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {The Japan Society of Applied Physics}%
+      }
+      \strng{namehash}{f5fec34aa58f7c03365dc3874bd08f5e}
+      \strng{fullhash}{3d2ff54478c6d66a5875605368ae30ee}
+      \field{sortinit}{0}
+      \field{labeltitle}{Stretchable Circuits with Horseshoe Shaped Conductors Embedded in Elastic Polymers}
+      \field{journaltitle}{Japanese Journal of Applied Physics}
+      \field{title}{Stretchable Circuits with Horseshoe Shaped Conductors Embedded in Elastic Polymers}
+      \field{volume}{52}
+      \field{year}{2013}
+      \field{pages}{05DA18}
+      \verb{doi}
+      \verb 10.1143/JJAP.52.05DA18
+      \endverb
+      \verb{url}
+      \verb http://jjap.jsap.jp/link?JJAP/52/05DA18/
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

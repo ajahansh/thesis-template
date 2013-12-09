@@ -1,0 +1,29 @@
+\documentclass[a4paper,10pt,twoside,showtrims,final]{memoir}
+\input{preamble}
+\addbibresource{ref.bib}
+%\includeonly{to} % use this line in order to compile a specific chapter only.
+% it runs faster.
+\listfiles
+\begin{document}
+\twoblankpages%two blank pages - Needed in UGent thesis templates
+\pagenumbering{roman}
+\selectlanguage{english}
+\include{title-page}
+\cleardoublepage\include{to}
+\cleardoublepage\include{thanks}
+\cleardoublepage\tableofcontents*
+\clearpage\listoffigures*\addcontentsline{toc}{section}{\listfigurename}
+\clearpage\listoftables*\addcontentsline{toc}{section}{\listtablename}\openany
+\include{summary}
+\printglossary[style=long]
+\addcontentsline{toc}{section}{\glossaryname}\openright\cleardoublepage
+\pagenumbering{arabic}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\include{publications} % self dissemination, can be a chapter in the beginning
+\include{chap1}
+\include{chap2}
+\appendix\openany
+\include{appendices}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\twoblankpages%two blank pages at the end. Needed by UGent.
+\end{document}
